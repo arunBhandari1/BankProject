@@ -1,0 +1,13 @@
+package com.rab3tech.customer.service.impl;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.rab3tech.vo.CustomerChequeRequestVO;
+
+public interface CustomerChequeRequestService 
+{
+	public List<CustomerChequeRequestVO> findCheckBookRequest();
+	public void save(CustomerChequeRequestVO cheque);
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;banking-web/src/main/resources/templates/customer/loanRequest&apos; to &apos;loanRequest.html&apos;" description="Rename resource &apos;loanRequest&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/resources/templates/customer/loanRequest" name="loanRequest.html" stamp="1626803489440" updateReferences="true"/>
+</session>

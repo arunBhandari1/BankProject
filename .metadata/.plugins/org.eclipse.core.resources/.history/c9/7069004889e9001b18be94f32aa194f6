@@ -1,0 +1,5 @@
+package com.rab3tech.customer.dao.repository;
+
+public class LoanRequestRepository {
+
+}

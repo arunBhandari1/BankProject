@@ -1,0 +1,74 @@
+package com.rab3tech.admin.controller;
+
+import static org.hamcrest.Matchers.hasSize;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.ArrayList;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
+import com.rab3tech.customer.service.impl.CustomerChequeRequestService;
+import com.rab3tech.vo.CustomerChequeRequestVO;
+import com.rab3tech.vo.CustomerVO;
+
+@RunWith(MockitoJUnitRunner.class)
+public class ChequeRequestControllerTest 
+{
+	private MockMvc mockMvc;
+	
+	@Mock
+	private CustomerChequeRequestService customerChequeRequestService ;
+	
+	@InjectMocks
+	private ChequeRequestController chequeRequestController;
+	
+	@Before
+	public void zigzag(){
+		MockitoAnnotations.initMocks(this);
+		//Here using mock mvc 
+        mockMvc = MockMvcBuilders
+                .standaloneSetup(chequeRequestController)
+                .build();
+	}
+	
+	
+//	when(customerService.findCustomers()).thenReturn(new ArrayList<CustomerVO>());
+//	mockMvc.perform(get("/v4/customers").
+//			accept(MediaType.APPLICATION_JSON))
+//	        .andExpect(status().isOk())
+//			.andExpect(jsonPath("$", hasSize(0)))
+//			.andDo(print());
+//	verify(customerService, times(1)).findCustomers();
+//	verifyNoMoreInteractions(customerService);
+	@Test
+	public void testSavingCustomerChequeRequest() throws Exception
+	{
+		CustomerChequeRequestVO customerChequeVO= new CustomerChequeRequestVO();
+		when(customerChequeRequestService.save(customerChequeVO)).thenReturn(customerChequeVO);
+		 mockMvc.perform(MockMvcRequestBuilders.post("/customer/chequeRequest"))
+				.andExpect(status().isOk())
+				.andDo(print());
+		 verify(customerChequeRequestService, times(1)).save(customerChequeVO);
+		 verifyNoMoreInteractions(customerChequeRequestService);
+				
+	}
+}

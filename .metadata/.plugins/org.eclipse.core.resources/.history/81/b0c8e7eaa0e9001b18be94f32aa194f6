@@ -1,0 +1,63 @@
+package com.rab3tech.vo;
+
+import java.sql.Timestamp;
+
+
+import com.rab3tech.dao.entity.Login;
+
+public class LoanRequestVO 
+{
+
+	private int id;
+	private Login login;
+	private String loanType;
+	private String description;
+	private long amount;
+	private Timestamp doe;
+	private String appref;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public Login getLogin() {
+		return login;
+	}
+	public void setLogin(Login login) {
+		this.login = login;
+	}
+	public String getLoanType() {
+		return loanType;
+	}
+	public void setLoanType(String loanType) {
+		this.loanType = loanType;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public long getAmount() {
+		return amount;
+	}
+	public void setAmount(long amount) {
+		this.amount = amount;
+	}
+	public Timestamp getDoe() {
+		return doe;
+	}
+	public void setDoe(Timestamp doe) {
+		this.doe = doe;
+	}
+	public String getAppref() {
+		return appref;
+	}
+	public void setAppref(String appref) {
+		this.appref = appref;
+	}
+	
+	
+
+}

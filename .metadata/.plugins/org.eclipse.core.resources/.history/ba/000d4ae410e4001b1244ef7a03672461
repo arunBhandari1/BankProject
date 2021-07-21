@@ -1,0 +1,8 @@
+package com.rab3tech.customer.service.impl;
+
+import java.util.List;
+
+public interface CustomerChequeRequestService 
+{
+	public List<CustomerChequeRequestVO> findCheckBookRequest();
+}

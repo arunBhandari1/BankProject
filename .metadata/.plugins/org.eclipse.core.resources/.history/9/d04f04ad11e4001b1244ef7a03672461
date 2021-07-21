@@ -1,0 +1,5 @@
+package com.rab3tech.customer.service.impl;
+
+public class CustomerChequeRequestServiceImpl {
+
+}

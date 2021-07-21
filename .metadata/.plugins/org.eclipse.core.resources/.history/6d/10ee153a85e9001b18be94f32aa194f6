@@ -1,0 +1,5 @@
+package com.rab3tech.dao.entity;
+
+public class LoanRequest {
+
+}

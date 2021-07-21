@@ -1,0 +1,21 @@
+package com.rab3tech.customer.service;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.rab3tech.customer.dao.repository.LoanRequestRepository;
+import com.rab3tech.dao.entity.LoanRequest;
+import com.rab3tech.vo.LoanRequestVO;
+
+public class LoanRequestService 
+{
+	@Autowired
+	private LoanRequestRepository loanRequestRepository;	
+	
+	public void saveLoanRequest(LoanRequestVO loanRequestVO)
+	{
+		LoanRequest loanRequest = new LoanRequest();
+		BeanUtils.copyProperties(loanRequestVO, loanRequest);
+		loanRequestRepository.save(loanRequest);
+	}
+}

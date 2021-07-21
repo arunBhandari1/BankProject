@@ -1,0 +1,32 @@
+package com.rab3tech.customer.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.rab3tech.customer.dao.repository.CustomerChequeRequestRepository;
+import com.rab3tech.dao.entity.CustomerChequeRequest;
+import com.rab3tech.vo.CustomerChequeRequestVO;
+
+public class CustomerChequeRequestServiceImpl implements CustomerChequeRequestService
+{
+	@Autowired
+	private CustomerChequeRequestRepository customerChequeRequestRepo;
+
+	@Override
+	public List<CustomerChequeRequestVO> findCheckBookRequest() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void save(CustomerChequeRequestVO customerChequeRequestVO) 
+	{
+		CustomerChequeRequest customerChequeRequest = new CustomerChequeRequest();
+		BeanUtils.copyProperties(customerChequeRequestVO, customerChequeRequest);
+		customerChequeRequestRepo.save(customerChequeRequest);
+		
+	}
+	
+}
